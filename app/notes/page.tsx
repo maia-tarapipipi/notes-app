@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import PocketBase from 'pocketbase'
+import CreateNote from './CreateNote'
 
 async function getNotes() {
   // NEXT db calls STRUCTURE
@@ -30,6 +31,7 @@ export default async function NotesPage() {
           return <Note key={note.id} note={note} />
         })}
       </div>
+      <CreateNote />
     </div>
   )
 }
