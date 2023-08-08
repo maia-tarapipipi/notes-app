@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import PocketBase from 'pocketbase'
+// import PocketBase from 'pocketbase'
 import CreateNote from './CreateNote'
 
 async function getNotes() {
-  // NEXT db calls STRUCTURE
+  // ------- NEXT db calls STRUCTURE
   const res = await fetch(
     'http://127.0.0.1:8090/api/collections/notes/records',
     {
@@ -25,7 +25,7 @@ export default async function NotesPage() {
 
   return (
     <div>
-      <h1>Notes</h1>
+      <h1 className="text-2xl font-bold">Notes</h1>
       <div>
         {notes?.map((note) => {
           return <Note key={note.id} note={note} />
@@ -40,13 +40,15 @@ function Note({ note }: any) {
   const { id, title, content, created } = note || {}
 
   return (
-    <Link href={`/notes/${id}`}>
-      <div>
-        <h2>Name: {title}</h2>
-        <h5>Note: {content}</h5>
-        <p>Date created: {created}</p>
-      </div>
-    </Link>
+    <div>
+      <Link href={`/notes/${id}`}>
+        <div>
+          <h2>Name: {title}</h2>
+          <h5>Note: {content}</h5>
+          <p>Date created: {created}</p>
+        </div>
+      </Link>
+    </div>
   )
 }
 
