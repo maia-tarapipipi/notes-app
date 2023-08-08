@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Notes App',
-  description: 'Fireship notes app',
+  description: 'simple notes app, for making and deleting notes',
 }
 
 export default function RootLayout({
